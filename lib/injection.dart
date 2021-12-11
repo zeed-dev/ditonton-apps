@@ -34,6 +34,7 @@ import 'package:ditonton/presentation/bloc/nowplaying_movie_bloc/nowplaying_movi
 import 'package:ditonton/presentation/bloc/popular_movie_bloc/popular_movie_bloc.dart';
 import 'package:ditonton/presentation/bloc/search_movie_bloc/search_bloc.dart';
 import 'package:ditonton/presentation/bloc/toprated_movie_bloc/toprated_movie_bloc.dart';
+import 'package:ditonton/presentation/bloc/watchlist_movie_bloc/watchlist_movie_bloc.dart';
 import 'package:ditonton/presentation/provider/movie_detail_notifier.dart';
 import 'package:ditonton/presentation/provider/movie_list_notifier.dart';
 import 'package:ditonton/presentation/provider/movie_search_notifier.dart';
@@ -132,6 +133,12 @@ void init() {
   locator.registerFactory(() => TopratedMovieBloc(locator()));
   locator.registerFactory(() => MovieDetailBloc(locator()));
   locator.registerFactory(() => MovieRecomendationBloc(locator()));
+  locator.registerFactory(() => WatchlistMovieBloc(
+        getWatchlistMovies: locator(),
+        getWatchListStatus: locator(),
+        saveWatchlist: locator(),
+        removeWatchlist: locator(),
+      ));
 
   // use case
   locator.registerLazySingleton(() => GetNowPlayingMovies(locator()));
