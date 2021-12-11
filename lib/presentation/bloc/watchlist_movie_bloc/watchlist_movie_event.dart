@@ -7,14 +7,7 @@ abstract class WatchlistMovieEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class GetWatchlistMovieEvents extends WatchlistMovieEvent {
-  final List<Movie> result;
-
-  GetWatchlistMovieEvents(this.result);
-
-  @override
-  List<Object> get props => [result];
-}
+class GetWatchlistMovieEvents extends WatchlistMovieEvent {}
 
 class GetWatchlistStatusEvents extends WatchlistMovieEvent {
   final int id;

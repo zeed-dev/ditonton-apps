@@ -51,7 +51,7 @@ class WatchlistMovieBloc
       final result = await saveWatchlist.execute(movie);
 
       result.fold((failure) {
-        emit(WatchlistMovieMessage(failure.message));
+        emit(WatchlistMovieError(failure.message));
       }, (data) {
         emit(WatchlistMovieMessage(data));
       });
@@ -63,7 +63,7 @@ class WatchlistMovieBloc
       final result = await removeWatchlist.execute(movie);
 
       result.fold((failure) {
-        emit(WatchlistMovieMessage(failure.message));
+        emit(WatchlistMovieError(failure.message));
       }, (data) {
         emit(WatchlistMovieMessage(data));
       });

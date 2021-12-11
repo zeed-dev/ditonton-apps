@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ditonton/common/constants.dart';
 import 'package:ditonton/domain/entities/genre.dart';
-import 'package:ditonton/domain/entities/movie.dart';
 import 'package:ditonton/domain/entities/movie_detail.dart';
 import 'package:ditonton/presentation/bloc/movie_detail_bloc/movie_detail_bloc.dart';
 import 'package:ditonton/presentation/bloc/movie_recomendation_bloc/movie_recomendation_bloc.dart';
@@ -75,6 +74,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
   }
 }
 
+// ignore: must_be_immutable
 class DetailContent extends StatefulWidget {
   MovieDetail movie;
   bool isAddedWatchlist;
