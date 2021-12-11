@@ -1,6 +1,9 @@
 import 'package:ditonton/common/constants.dart';
 import 'package:ditonton/common/utils.dart';
+import 'package:ditonton/presentation/bloc/nowplaying_movie_bloc/nowplaying_movie_bloc.dart';
+import 'package:ditonton/presentation/bloc/popular_movie_bloc/popular_movie_bloc.dart';
 import 'package:ditonton/presentation/bloc/search_movie_bloc/search_bloc.dart';
+import 'package:ditonton/presentation/bloc/toprated_movie_bloc/toprated_movie_bloc.dart';
 import 'package:ditonton/presentation/pages/about_page.dart';
 import 'package:ditonton/presentation/pages/movie_detail_page.dart';
 import 'package:ditonton/presentation/pages/home_movie_page.dart';
@@ -42,6 +45,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+        BlocProvider(
+          create: (_) =>
+              di.locator<NowPlayingMovieBloc>()..add(GetNowPlayingMovieEvent()),
+        ),
+        BlocProvider(
+          create: (_) =>
+              di.locator<PopularMovieBloc>()..add(GetPopularMovieEvent()),
+        ),
+        BlocProvider(
+          create: (_) =>
+              di.locator<TopratedMovieBloc>()..add(GetTopRatedMovieEvent()),
+        ),
         ChangeNotifierProvider(
           create: (_) => di.locator<MovieListNotifier>(),
         ),
