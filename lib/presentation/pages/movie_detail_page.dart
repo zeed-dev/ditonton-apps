@@ -39,9 +39,6 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
 
   @override
   Widget build(BuildContext context) {
-    MovieRecomendationState recomendationState =
-        context.watch<MovieRecomendationBloc>().state;
-
     final isAddedWatchlist = context.select<WatchlistMovieBloc, bool>((bloc) {
       if (bloc.state is MovieIsAddedToWatchList) {
         return (bloc.state as MovieIsAddedToWatchList).isAdded;
