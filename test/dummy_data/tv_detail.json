@@ -1,0 +1,176 @@
+{
+    "backdrop_path": "/pkOSjcllDSs4WP9i8DGkw9VgF5Q.jpg",
+    "created_by": [
+        {
+            "id": 1491837,
+            "credit_id": "5fc8282cb2681f003f927b5f",
+            "name": "Kai Pflaume",
+            "gender": 2,
+            "profile_path": "/ppqy8aeOcilz8DMTccroE2eKSyz.jpg"
+        }
+    ],
+    "episode_run_time": [
+        45
+    ],
+    "first_air_date": "2015-07-06",
+    "genres": [
+        {
+            "id": 10764,
+            "name": "1076410764"
+        },
+        {
+            "id": 10751,
+            "name": "Family"
+        }
+    ],
+    "homepage": "https://www.daserste.de/unterhaltung/quiz-show/wer-weiss-denn-sowas/index.htmlWho",
+    "id": 63452,
+    "in_production": true,
+    "languages": [
+        "de"
+    ],
+    "last_air_date": "2021-12-07",
+    "last_episode_to_air": {
+        "air_date": "2021-12-07",
+        "episode_number": 47,
+        "id": 3355585,
+        "name": "",
+        "overview": "",
+        "production_code": "",
+        "season_number": 7,
+        "still_path": null,
+        "vote_average": 0.0,
+        "vote_count": 0
+    },
+    "name": "Wer weiß denn sowas?",
+    "next_episode_to_air": {
+        "air_date": "2021-12-08",
+        "episode_number": 48,
+        "id": 3355586,
+        "name": "",
+        "overview": "",
+        "production_code": "",
+        "season_number": 7,
+        "still_path": null,
+        "vote_average": 0.0,
+        "vote_count": 0
+    },
+    "networks": [
+        {
+            "name": "Das Erste",
+            "id": 442,
+            "logo_path": "/nGl2dDGonksWY4fTzPPdkK3oNyq.png",
+            "origin_country": "DE"
+        }
+    ],
+    "number_of_episodes": 784,
+    "number_of_seasons": 7,
+    "origin_country": [
+        "DE"
+    ],
+    "original_language": "de",
+    "original_name": "Wer weiß denn sowas?",
+    "overview": "",
+    "popularity": 1970.517,
+    "poster_path": "/abKjah96esLWObidBcWmvKJv61E.jpg",
+    "production_companies": [
+        {
+            "id": 59707,
+            "logo_path": null,
+            "name": "UFA Show & Factual",
+            "origin_country": "DE"
+        }
+    ],
+    "production_countries": [
+        {
+            "iso_3166_1": "DE",
+            "name": "Germany"
+        }
+    ],
+    "seasons": [
+        {
+            "air_date": "2015-07-25",
+            "episode_count": 26,
+            "id": 170909,
+            "name": "Specials",
+            "overview": "",
+            "poster_path": null,
+            "season_number": 0
+        },
+        {
+            "air_date": "2015-07-06",
+            "episode_count": 31,
+            "id": 69128,
+            "name": "Season 1",
+            "overview": "",
+            "poster_path": null,
+            "season_number": 1
+        },
+        {
+            "air_date": "2016-03-29",
+            "episode_count": 120,
+            "id": 78743,
+            "name": "Season 2",
+            "overview": "",
+            "poster_path": null,
+            "season_number": 2
+        },
+        {
+            "air_date": "2017-07-03",
+            "episode_count": 165,
+            "id": 102534,
+            "name": "Season 3",
+            "overview": "",
+            "poster_path": null,
+            "season_number": 3
+        },
+        {
+            "air_date": "2018-10-01",
+            "episode_count": 142,
+            "id": 125729,
+            "name": "Season 4",
+            "overview": "",
+            "poster_path": null,
+            "season_number": 4
+        },
+        {
+            "air_date": "2019-09-30",
+            "episode_count": 129,
+            "id": 170906,
+            "name": "Season 5",
+            "overview": "",
+            "poster_path": null,
+            "season_number": 5
+        },
+        {
+            "air_date": "2020-11-09",
+            "episode_count": 142,
+            "id": 170907,
+            "name": "Season 6",
+            "overview": "",
+            "poster_path": null,
+            "season_number": 6
+        },
+        {
+            "air_date": "2021-10-04",
+            "episode_count": 55,
+            "id": 207908,
+            "name": "Season 7",
+            "overview": "",
+            "poster_path": null,
+            "season_number": 7
+        }
+    ],
+    "spoken_languages": [
+        {
+            "english_name": "German",
+            "iso_639_1": "de",
+            "name": "Deutsch"
+        }
+    ],
+    "status": "Returning Series",
+    "tagline": "",
+    "type": "Scripted",
+    "vote_average": 8.0,
+    "vote_count": 7
+}
