@@ -1,5 +1,7 @@
 import 'package:ditonton/common/constants.dart';
 import 'package:ditonton/common/utils.dart';
+import 'package:ditonton/presentation/bloc/movie_detail_bloc/movie_detail_bloc.dart';
+import 'package:ditonton/presentation/bloc/movie_recomendation_bloc/movie_recomendation_bloc.dart';
 import 'package:ditonton/presentation/bloc/nowplaying_movie_bloc/nowplaying_movie_bloc.dart';
 import 'package:ditonton/presentation/bloc/popular_movie_bloc/popular_movie_bloc.dart';
 import 'package:ditonton/presentation/bloc/search_movie_bloc/search_bloc.dart';
@@ -57,6 +59,13 @@ class MyApp extends StatelessWidget {
           create: (_) =>
               di.locator<TopratedMovieBloc>()..add(GetTopRatedMovieEvent()),
         ),
+        BlocProvider(
+          create: (_) => di.locator<MovieDetailBloc>(),
+        ),
+        BlocProvider(
+          create: (_) => di.locator<MovieRecomendationBloc>(),
+        ),
+        // PROVIDER
         ChangeNotifierProvider(
           create: (_) => di.locator<MovieListNotifier>(),
         ),
