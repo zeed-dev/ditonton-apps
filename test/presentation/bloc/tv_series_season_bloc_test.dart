@@ -3,15 +3,11 @@ import 'package:dartz/dartz.dart';
 import 'package:ditonton/common/failure.dart';
 import 'package:ditonton/domain/entities/episode.dart';
 import 'package:ditonton/domain/entities/season.dart';
-import 'package:ditonton/domain/entities/tv.dart';
 import 'package:ditonton/domain/usecases/get_tv_season.dart';
 import 'package:ditonton/presentation/bloc/tv_season_bloc/tv_season_bloc.dart';
-import 'package:ditonton/presentation/bloc/tv_series_top_rated/tv_series_top_rated_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-
-import '../provider/tv_list_notifier_test.mocks.dart';
 import 'tv_series_season_bloc_test.mocks.dart';
 
 @GenerateMocks([GetTvSeason])
