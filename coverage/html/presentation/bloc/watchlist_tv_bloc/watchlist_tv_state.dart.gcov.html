@@ -31,13 +31,13 @@
             <td class="headerValue">lcov.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">9</td>
             <td class="headerCovTableEntry">15</td>
-            <td class="headerCovTableEntryLo">0.0 %</td>
+            <td class="headerCovTableEntryLo">60.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-12-12 15:34:52</td>
+            <td class="headerValue">2021-12-12 15:41:05</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -63,10 +63,10 @@
 <a name="1"><span class="lineNum">       1 </span>            : part of 'watchlist_tv_bloc.dart';</a>
 <a name="2"><span class="lineNum">       2 </span>            : </a>
 <a name="3"><span class="lineNum">       3 </span>            : abstract class WatchlistTvState extends Equatable {</a>
-<a name="4"><span class="lineNum">       4 </span><span class="lineNoCov">          0 :   const WatchlistTvState();</span></a>
+<a name="4"><span class="lineNum">       4 </span><span class="lineCov">          1 :   const WatchlistTvState();</span></a>
 <a name="5"><span class="lineNum">       5 </span>            : </a>
-<a name="6"><span class="lineNum">       6 </span><span class="lineNoCov">          0 :   @override</span></a>
-<a name="7"><span class="lineNum">       7 </span><span class="lineNoCov">          0 :   List&lt;Object&gt; get props =&gt; [];</span></a>
+<a name="6"><span class="lineNum">       6 </span><span class="lineCov">          1 :   @override</span></a>
+<a name="7"><span class="lineNum">       7 </span><span class="lineCov">          1 :   List&lt;Object&gt; get props =&gt; [];</span></a>
 <a name="8"><span class="lineNum">       8 </span>            : }</a>
 <a name="9"><span class="lineNum">       9 </span>            : </a>
 <a name="10"><span class="lineNum">      10 </span>            : class WatchlistTvEmpty extends WatchlistTvState {}</a>
@@ -76,19 +76,19 @@
 <a name="14"><span class="lineNum">      14 </span>            : class WatchlistTvError extends WatchlistTvState {</a>
 <a name="15"><span class="lineNum">      15 </span>            :   final String message;</a>
 <a name="16"><span class="lineNum">      16 </span>            : </a>
-<a name="17"><span class="lineNum">      17 </span><span class="lineNoCov">          0 :   const WatchlistTvError(this.message);</span></a>
+<a name="17"><span class="lineNum">      17 </span><span class="lineCov">          1 :   const WatchlistTvError(this.message);</span></a>
 <a name="18"><span class="lineNum">      18 </span>            : </a>
-<a name="19"><span class="lineNum">      19 </span><span class="lineNoCov">          0 :   @override</span></a>
-<a name="20"><span class="lineNum">      20 </span><span class="lineNoCov">          0 :   List&lt;Object&gt; get props =&gt; [message];</span></a>
+<a name="19"><span class="lineNum">      19 </span><span class="lineCov">          1 :   @override</span></a>
+<a name="20"><span class="lineNum">      20 </span><span class="lineCov">          2 :   List&lt;Object&gt; get props =&gt; [message];</span></a>
 <a name="21"><span class="lineNum">      21 </span>            : }</a>
 <a name="22"><span class="lineNum">      22 </span>            : </a>
 <a name="23"><span class="lineNum">      23 </span>            : class WatchlistTvHasData extends WatchlistTvState {</a>
 <a name="24"><span class="lineNum">      24 </span>            :   final List&lt;Tv&gt; result;</a>
 <a name="25"><span class="lineNum">      25 </span>            : </a>
-<a name="26"><span class="lineNum">      26 </span><span class="lineNoCov">          0 :   const WatchlistTvHasData(this.result);</span></a>
+<a name="26"><span class="lineNum">      26 </span><span class="lineCov">          1 :   const WatchlistTvHasData(this.result);</span></a>
 <a name="27"><span class="lineNum">      27 </span>            : </a>
-<a name="28"><span class="lineNum">      28 </span><span class="lineNoCov">          0 :   @override</span></a>
-<a name="29"><span class="lineNum">      29 </span><span class="lineNoCov">          0 :   List&lt;Object&gt; get props =&gt; [result];</span></a>
+<a name="28"><span class="lineNum">      28 </span><span class="lineCov">          1 :   @override</span></a>
+<a name="29"><span class="lineNum">      29 </span><span class="lineCov">          2 :   List&lt;Object&gt; get props =&gt; [result];</span></a>
 <a name="30"><span class="lineNum">      30 </span>            : }</a>
 <a name="31"><span class="lineNum">      31 </span>            : </a>
 <a name="32"><span class="lineNum">      32 </span>            : class TvIsAddedToWatchList extends WatchlistTvState {</a>
