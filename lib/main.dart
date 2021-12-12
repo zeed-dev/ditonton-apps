@@ -5,6 +5,7 @@ import 'package:ditonton/presentation/bloc/movie_recomendation_bloc/movie_recome
 import 'package:ditonton/presentation/bloc/nowplaying_movie_bloc/nowplaying_movie_bloc.dart';
 import 'package:ditonton/presentation/bloc/popular_movie_bloc/popular_movie_bloc.dart';
 import 'package:ditonton/presentation/bloc/search_movie_bloc/search_bloc.dart';
+import 'package:ditonton/presentation/bloc/search_tv_bloc/search_tv_bloc.dart';
 import 'package:ditonton/presentation/bloc/toprated_movie_bloc/toprated_movie_bloc.dart';
 import 'package:ditonton/presentation/bloc/tv_detail_bloc/tv_detail_bloc.dart';
 import 'package:ditonton/presentation/bloc/tv_recomendation_bloc/tv_recomendation_bloc.dart';
@@ -96,6 +97,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (_) => di.locator<WatchlistTvBloc>(),
+        ),
+        BlocProvider(
+          create: (_) => di.locator<SearchTvBloc>(),
         ),
         // PROVIDER
         ChangeNotifierProvider(
