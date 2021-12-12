@@ -134,3 +134,22 @@ final testTvDetailDua = TvDetail(
   voteAverage: 8.0,
   voteCount: 7,
 );
+
+final tTvModel = Tv(
+  firstAirDate: "2021-11-24",
+  name: "Hawkeye",
+  originCountry: ["US"],
+  originalLanguage: "en",
+  originalName: "Hawkeye",
+  backdropPath: "/1R68vl3d5s86JsS2NPjl8UoMqIS.jpg",
+  genreIds: [10759, 18],
+  id: 88329,
+  overview:
+      "Former Avenger Clint Barton has a seemingly simple mission: get back to his family for Christmas. Possible? Maybe with the help of Kate Bishop, a 22-year-old archer with dreams of becoming a superhero. The two are forced to work together when a presence from Barton’s past threatens to derail far more than the festive spirit.",
+  popularity: 5530.564,
+  posterPath: "/pqzjCxPVc9TkVgGRWeAoMmyqkZV.jpg",
+  voteAverage: 8.6,
+  voteCount: 616,
+);
+
+final tTvList = [tTvModel];

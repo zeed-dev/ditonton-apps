@@ -7,9 +7,15 @@ abstract class MovieDetailState extends Equatable {
   List<Object> get props => [];
 }
 
-class MovieDetailEmpty extends MovieDetailState {}
+class MovieDetailEmpty extends MovieDetailState {
+  @override
+  List<Object> get props => [];
+}
 
-class MovieDetailLoading extends MovieDetailState {}
+class MovieDetailLoading extends MovieDetailState {
+  @override
+  List<Object> get props => [];
+}
 
 class MovieDetailError extends MovieDetailState {
   final String message;

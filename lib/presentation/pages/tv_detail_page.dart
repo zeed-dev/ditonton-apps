@@ -1,11 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ditonton/common/constants.dart';
 import 'package:ditonton/domain/entities/genre.dart';
-import 'package:ditonton/domain/entities/tv.dart';
 import 'package:ditonton/domain/entities/tv_detail.dart';
-import 'package:ditonton/common/state_enum.dart';
+import 'package:ditonton/presentation/bloc/tv_detail_bloc/tv_detail_bloc.dart';
+import 'package:ditonton/presentation/bloc/tv_recomendation_bloc/tv_recomendation_bloc.dart';
+import 'package:ditonton/presentation/bloc/tv_season_bloc/tv_season_bloc.dart';
 import 'package:ditonton/presentation/provider/tv_detail_notifer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
 
@@ -24,8 +26,13 @@ class _TvDetailPageState extends State<TvDetailPage> {
   void initState() {
     super.initState();
     Future.microtask(() {
-      Provider.of<TvDetailNotifier>(context, listen: false)
-          .fetchTvDetail(widget.id);
+      context.read<TvDetailBloc>()..add(GetTvDetailEvent(widget.id));
+
+      context.read<TvSeasonBloc>()..add(GetTvSeasonEvent(widget.id));
+
+      context.read<TvRecomendationBloc>()
+        ..add(GetTvRecomendationEvent(widget.id));
+
       Provider.of<TvDetailNotifier>(context, listen: false)
           .loadWatchlistStatus(widget.id);
     });
@@ -34,40 +41,64 @@ class _TvDetailPageState extends State<TvDetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Consumer<TvDetailNotifier>(
-        builder: (context, provider, child) {
-          if (provider.tvState == RequestState.Loading) {
+      body: BlocBuilder<TvDetailBloc, TvDetailState>(
+        builder: (context, state) {
+          if (state is TvDetailLoading) {
             return Center(
               child: CircularProgressIndicator(),
             );
-          } else if (provider.tvState == RequestState.Loaded) {
-            final tv = provider.tv;
+          } else if (state is TvDetailHasData) {
+            final tv = state.tvDetail;
 
             return SafeArea(
               child: DetailContent(
                 tv: tv,
-                isAddedWatchlist: provider.isAddedToWatchlist,
-                recomendations: provider.tvRecommendations,
               ),
             );
+          } else if (state is TvDetailError) {
+            return Center(
+              child: Text(state.message),
+            );
           } else {
-            return Text(provider.message);
+            return SizedBox();
           }
         },
       ),
+
+      // Consumer<TvDetailNotifier>(
+      //   builder: (context, provider, child) {
+      //     if (provider.tvState == RequestState.Loading) {
+      //       return Center(
+      //         child: CircularProgressIndicator(),
+      //       );
+      //     } else if (provider.tvState == RequestState.Loaded) {
+      //       final tv = provider.tv;
+
+      //       return SafeArea(
+      //         child: DetailContent(
+      //           tv: tv,
+      //           isAddedWatchlist: provider.isAddedToWatchlist,
+      //           recomendations: provider.tvRecommendations,
+      //         ),
+      //       );
+      //     } else {
+      //       return Text(provider.message);
+      //     }
+      //   },
+      // ),
     );
   }
 }
 
 class DetailContent extends StatelessWidget {
   final TvDetail tv;
-  final List<Tv> recomendations;
+  // final List<Tv> recomendations;
   final bool isAddedWatchlist;
 
   DetailContent({
     required this.tv,
-    required this.isAddedWatchlist,
-    required this.recomendations,
+    // required this.recomendations,
+    this.isAddedWatchlist = false,
   });
 
   @override
@@ -190,23 +221,19 @@ class DetailContent extends StatelessWidget {
                               'Season',
                               style: kHeading6,
                             ),
-                            Consumer<TvDetailNotifier>(
-                              builder: (context, data, child) {
-                                if (data.seasonState == RequestState.Loading) {
+                            BlocBuilder<TvSeasonBloc, TvSeasonState>(
+                              builder: (context, state) {
+                                if (state is TvSeasonLoading) {
                                   return Center(
                                     child: CircularProgressIndicator(),
                                   );
-                                } else if (data.seasonState ==
-                                    RequestState.Error) {
-                                  return Text(data.message);
-                                } else if (data.seasonState ==
-                                    RequestState.Loaded) {
+                                } else if (state is TvSeasonHasData) {
                                   return Container(
                                     height: 150,
                                     child: ListView.builder(
                                       scrollDirection: Axis.horizontal,
                                       itemBuilder: (context, index) {
-                                        final season = data.season;
+                                        final season = state.result;
                                         return Padding(
                                           padding: const EdgeInsets.all(4.0),
                                           child: InkWell(
@@ -231,7 +258,7 @@ class DetailContent extends StatelessWidget {
                                           ),
                                         );
                                       },
-                                      itemCount: data.season.seasonNumber,
+                                      itemCount: state.result.seasonNumber,
                                     ),
                                   );
                                 } else {
@@ -246,24 +273,20 @@ class DetailContent extends StatelessWidget {
                               'Episode',
                               style: kHeading6,
                             ),
-                            Consumer<TvDetailNotifier>(
-                              builder: (context, data, child) {
-                                if (data.seasonState == RequestState.Loading) {
+                            BlocBuilder<TvSeasonBloc, TvSeasonState>(
+                              builder: (context, state) {
+                                if (state is TvSeasonLoading) {
                                   return Center(
                                     child: CircularProgressIndicator(),
                                   );
-                                } else if (data.seasonState ==
-                                    RequestState.Error) {
-                                  return Text(data.message);
-                                } else if (data.seasonState ==
-                                    RequestState.Loaded) {
+                                } else if (state is TvSeasonHasData) {
                                   return Container(
                                     height: 150,
                                     child: ListView.builder(
                                       scrollDirection: Axis.horizontal,
                                       itemBuilder: (context, index) {
                                         final episode =
-                                            data.season.episodes[index];
+                                            state.result.episodes[index];
                                         return Padding(
                                           padding: const EdgeInsets.all(4.0),
                                           child: InkWell(
@@ -351,7 +374,7 @@ class DetailContent extends StatelessWidget {
                                           ),
                                         );
                                       },
-                                      itemCount: data.season.episodes.length,
+                                      itemCount: state.result.episodes.length,
                                     ),
                                   );
                                 } else {
@@ -364,24 +387,21 @@ class DetailContent extends StatelessWidget {
                               'Recommendations',
                               style: kHeading6,
                             ),
-                            Consumer<TvDetailNotifier>(
-                              builder: (context, data, child) {
-                                if (data.recommendationState ==
-                                    RequestState.Loading) {
+                            BlocBuilder<TvRecomendationBloc,
+                                TvRecomendationState>(
+                              key: Key("recommendation_tv"),
+                              builder: (context, state) {
+                                if (state is TvRecomendationLoading) {
                                   return Center(
                                     child: CircularProgressIndicator(),
                                   );
-                                } else if (data.recommendationState ==
-                                    RequestState.Error) {
-                                  return Text(data.message);
-                                } else if (data.recommendationState ==
-                                    RequestState.Loaded) {
+                                } else if (state is TvRecomendationHasData) {
                                   return Container(
                                     height: 150,
                                     child: ListView.builder(
                                       scrollDirection: Axis.horizontal,
                                       itemBuilder: (context, index) {
-                                        final tv = recomendations[index];
+                                        final tv = state.result[index];
                                         return Padding(
                                           padding: const EdgeInsets.all(4.0),
                                           child: InkWell(
@@ -412,11 +432,15 @@ class DetailContent extends StatelessWidget {
                                           ),
                                         );
                                       },
-                                      itemCount: recomendations.length,
+                                      itemCount: state.result.length,
                                     ),
                                   );
+                                } else if (state is TvRecomendationError) {
+                                  return Center(
+                                    child: Text(state.message),
+                                  );
                                 } else {
-                                  return Container();
+                                  return SizedBox();
                                 }
                               },
                             ),
