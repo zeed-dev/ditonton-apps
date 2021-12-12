@@ -40,6 +40,7 @@ import 'package:ditonton/presentation/bloc/tv_series_now_playing_bloc/tv_series_
 import 'package:ditonton/presentation/bloc/tv_series_popular_bloc/tv_series_popular_bloc.dart';
 import 'package:ditonton/presentation/bloc/tv_series_top_rated/tv_series_top_rated_bloc.dart';
 import 'package:ditonton/presentation/bloc/watchlist_movie_bloc/watchlist_movie_bloc.dart';
+import 'package:ditonton/presentation/bloc/watchlist_tv_bloc/watchlist_tv_bloc.dart';
 import 'package:ditonton/presentation/provider/movie_detail_notifier.dart';
 import 'package:ditonton/presentation/provider/movie_list_notifier.dart';
 import 'package:ditonton/presentation/provider/movie_search_notifier.dart';
@@ -140,18 +141,24 @@ void init() {
   locator.registerFactory(() => TopratedMovieBloc(locator()));
   locator.registerFactory(() => MovieDetailBloc(locator()));
   locator.registerFactory(() => MovieRecomendationBloc(locator()));
-  locator.registerFactory(() => WatchlistMovieBloc(
-        getWatchlistMovies: locator(),
-        getWatchListStatus: locator(),
-        saveWatchlist: locator(),
-        removeWatchlist: locator(),
-      ));
   locator.registerFactory(() => TvSeriesNowPlayingBloc(locator()));
   locator.registerFactory(() => TvSeriesPopularBloc(locator()));
   locator.registerFactory(() => TvSeriesTopRatedBloc(locator()));
   locator.registerFactory(() => TvDetailBloc(locator()));
   locator.registerFactory(() => TvRecomendationBloc(locator()));
   locator.registerFactory(() => TvSeasonBloc(locator()));
+  locator.registerFactory(() => WatchlistTvBloc(
+        getTvWatchListStatus: locator(),
+        getWatchlistTv: locator(),
+        removeTvWatchlist: locator(),
+        saveTvWatchlist: locator(),
+      ));
+  locator.registerFactory(() => WatchlistMovieBloc(
+        getWatchlistMovies: locator(),
+        getWatchListStatus: locator(),
+        saveWatchlist: locator(),
+        removeWatchlist: locator(),
+      ));
 
   // use case
   locator.registerLazySingleton(() => GetNowPlayingMovies(locator()));
