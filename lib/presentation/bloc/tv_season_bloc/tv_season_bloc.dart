@@ -8,7 +8,7 @@ part 'tv_season_state.dart';
 
 class TvSeasonBloc extends Bloc<TvSeasonEvent, TvSeasonState> {
   GetTvSeason getTvSeason;
-  TvSeasonBloc(this.getTvSeason) : super(TvSeasonInitial()) {
+  TvSeasonBloc(this.getTvSeason) : super(TvSeasonEmpty()) {
     on<GetTvSeasonEvent>((event, emit) async {
       final id = event.id;
       emit(TvSeasonLoading());

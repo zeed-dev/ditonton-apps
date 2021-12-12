@@ -31,13 +31,13 @@
             <td class="headerValue">lcov.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">0</td>
             <td class="headerCovTableEntry">10</td>
-            <td class="headerCovTableEntryLo">0.0 %</td>
+            <td class="headerCovTableEntry">10</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-12-12 10:34:14</td>
+            <td class="headerValue">2021-12-12 10:49:43</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -70,17 +70,17 @@
 <a name="8"><span class="lineNum">       8 </span>            : </a>
 <a name="9"><span class="lineNum">       9 </span>            : class TvSeasonBloc extends Bloc&lt;TvSeasonEvent, TvSeasonState&gt; {</a>
 <a name="10"><span class="lineNum">      10 </span>            :   GetTvSeason getTvSeason;</a>
-<a name="11"><span class="lineNum">      11 </span><span class="lineNoCov">          0 :   TvSeasonBloc(this.getTvSeason) : super(TvSeasonInitial()) {</span></a>
-<a name="12"><span class="lineNum">      12 </span><span class="lineNoCov">          0 :     on&lt;GetTvSeasonEvent&gt;((event, emit) async {</span></a>
-<a name="13"><span class="lineNum">      13 </span><span class="lineNoCov">          0 :       final id = event.id;</span></a>
-<a name="14"><span class="lineNum">      14 </span><span class="lineNoCov">          0 :       emit(TvSeasonLoading());</span></a>
-<a name="15"><span class="lineNum">      15 </span><span class="lineNoCov">          0 :       final result = await getTvSeason.execute(id);</span></a>
-<a name="16"><span class="lineNum">      16 </span><span class="lineNoCov">          0 :       result.fold(</span></a>
-<a name="17"><span class="lineNum">      17 </span><span class="lineNoCov">          0 :         (failure) {</span></a>
-<a name="18"><span class="lineNum">      18 </span><span class="lineNoCov">          0 :           emit(TvSeasonError(failure.message));</span></a>
+<a name="11"><span class="lineNum">      11 </span><span class="lineCov">          3 :   TvSeasonBloc(this.getTvSeason) : super(TvSeasonEmpty()) {</span></a>
+<a name="12"><span class="lineNum">      12 </span><span class="lineCov">          2 :     on&lt;GetTvSeasonEvent&gt;((event, emit) async {</span></a>
+<a name="13"><span class="lineNum">      13 </span><span class="lineCov">          1 :       final id = event.id;</span></a>
+<a name="14"><span class="lineNum">      14 </span><span class="lineCov">          2 :       emit(TvSeasonLoading());</span></a>
+<a name="15"><span class="lineNum">      15 </span><span class="lineCov">          3 :       final result = await getTvSeason.execute(id);</span></a>
+<a name="16"><span class="lineNum">      16 </span><span class="lineCov">          1 :       result.fold(</span></a>
+<a name="17"><span class="lineNum">      17 </span><span class="lineCov">          1 :         (failure) {</span></a>
+<a name="18"><span class="lineNum">      18 </span><span class="lineCov">          3 :           emit(TvSeasonError(failure.message));</span></a>
 <a name="19"><span class="lineNum">      19 </span>            :         },</a>
-<a name="20"><span class="lineNum">      20 </span><span class="lineNoCov">          0 :         (seasonData) {</span></a>
-<a name="21"><span class="lineNum">      21 </span><span class="lineNoCov">          0 :           emit(TvSeasonHasData(seasonData));</span></a>
+<a name="20"><span class="lineNum">      20 </span><span class="lineCov">          1 :         (seasonData) {</span></a>
+<a name="21"><span class="lineNum">      21 </span><span class="lineCov">          2 :           emit(TvSeasonHasData(seasonData));</span></a>
 <a name="22"><span class="lineNum">      22 </span>            :         },</a>
 <a name="23"><span class="lineNum">      23 </span>            :       );</a>
 <a name="24"><span class="lineNum">      24 </span>            :     });</a>
