@@ -21,41 +21,42 @@ void main() {
   });
 
   final tSeason = Season(
-      id: "id",
-      airDate: DateTime.now(),
-      episodes: [
-        Episode(
-          episodeNumber: 1,
-          crew: ["crew"],
-          guestStars: ["guestStars"],
-          id: 1,
-          name: "name",
-          overview: "overview",
-          productionCode: "productionCode",
-          seasonNumber: 1,
-          stillPath: "stillPath",
-          voteAverage: 2,
-          voteCount: 2,
-        ),
-        Episode(
-          episodeNumber: 1,
-          crew: ["crew"],
-          guestStars: ["guestStars"],
-          id: 1,
-          name: "name",
-          overview: "overview",
-          productionCode: "productionCode",
-          seasonNumber: 1,
-          stillPath: "stillPath",
-          voteAverage: 2,
-          voteCount: 2,
-        ),
-      ],
-      name: "name",
-      overview: "overview",
-      seasonResponseId: 1,
-      posterPath: "posterPath",
-      seasonNumber: 1);
+    id: "id",
+    airDate: DateTime.now(),
+    episodes: [
+      Episode(
+        episodeNumber: 1,
+        crew: ["crew"],
+        guestStars: ["guestStars"],
+        id: 1,
+        name: "name",
+        overview: "overview",
+        productionCode: "productionCode",
+        seasonNumber: 1,
+        stillPath: "stillPath",
+        voteAverage: 2,
+        voteCount: 2,
+      ),
+      Episode(
+        episodeNumber: 1,
+        crew: ["crew"],
+        guestStars: ["guestStars"],
+        id: 1,
+        name: "name",
+        overview: "overview",
+        productionCode: "productionCode",
+        seasonNumber: 1,
+        stillPath: "stillPath",
+        voteAverage: 2,
+        voteCount: 2,
+      ),
+    ],
+    name: "name",
+    overview: "overview",
+    seasonResponseId: 1,
+    posterPath: "posterPath",
+    seasonNumber: 1,
+  );
 
   test('initial state should be empry', () {
     expect(tvSeasonBloc.state, TvSeasonEmpty());
