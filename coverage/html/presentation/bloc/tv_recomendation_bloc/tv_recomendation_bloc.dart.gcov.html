@@ -31,13 +31,13 @@
             <td class="headerValue">lcov.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">0</td>
             <td class="headerCovTableEntry">11</td>
-            <td class="headerCovTableEntryLo">0.0 %</td>
+            <td class="headerCovTableEntry">11</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2021-12-12 08:01:50</td>
+            <td class="headerValue">2021-12-12 09:10:05</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -71,18 +71,18 @@
 <a name="9"><span class="lineNum">       9 </span>            : class TvRecomendationBloc</a>
 <a name="10"><span class="lineNum">      10 </span>            :     extends Bloc&lt;TvRecomendationEvent, TvRecomendationState&gt; {</a>
 <a name="11"><span class="lineNum">      11 </span>            :   GetTvRecommendations getTvRecommendations;</a>
-<a name="12"><span class="lineNum">      12 </span><span class="lineNoCov">          0 :   TvRecomendationBloc(this.getTvRecommendations)</span></a>
-<a name="13"><span class="lineNum">      13 </span><span class="lineNoCov">          0 :       : super(TvRecomendationInitial()) {</span></a>
-<a name="14"><span class="lineNum">      14 </span><span class="lineNoCov">          0 :     on&lt;GetTvRecomendationEvent&gt;((event, emit) async {</span></a>
-<a name="15"><span class="lineNum">      15 </span><span class="lineNoCov">          0 :       final id = event.id;</span></a>
-<a name="16"><span class="lineNum">      16 </span><span class="lineNoCov">          0 :       emit(TvRecomendationLoading());</span></a>
-<a name="17"><span class="lineNum">      17 </span><span class="lineNoCov">          0 :       final result = await getTvRecommendations.execute(id);</span></a>
-<a name="18"><span class="lineNum">      18 </span><span class="lineNoCov">          0 :       result.fold(</span></a>
-<a name="19"><span class="lineNum">      19 </span><span class="lineNoCov">          0 :         (failure) {</span></a>
-<a name="20"><span class="lineNum">      20 </span><span class="lineNoCov">          0 :           emit(TvRecomendationError(failure.message));</span></a>
+<a name="12"><span class="lineNum">      12 </span><span class="lineCov">          1 :   TvRecomendationBloc(this.getTvRecommendations)</span></a>
+<a name="13"><span class="lineNum">      13 </span><span class="lineCov">          2 :       : super(TvRecomendationEmpty()) {</span></a>
+<a name="14"><span class="lineNum">      14 </span><span class="lineCov">          2 :     on&lt;GetTvRecomendationEvent&gt;((event, emit) async {</span></a>
+<a name="15"><span class="lineNum">      15 </span><span class="lineCov">          1 :       final id = event.id;</span></a>
+<a name="16"><span class="lineNum">      16 </span><span class="lineCov">          2 :       emit(TvRecomendationLoading());</span></a>
+<a name="17"><span class="lineNum">      17 </span><span class="lineCov">          3 :       final result = await getTvRecommendations.execute(id);</span></a>
+<a name="18"><span class="lineNum">      18 </span><span class="lineCov">          1 :       result.fold(</span></a>
+<a name="19"><span class="lineNum">      19 </span><span class="lineCov">          1 :         (failure) {</span></a>
+<a name="20"><span class="lineNum">      20 </span><span class="lineCov">          3 :           emit(TvRecomendationError(failure.message));</span></a>
 <a name="21"><span class="lineNum">      21 </span>            :         },</a>
-<a name="22"><span class="lineNum">      22 </span><span class="lineNoCov">          0 :         (tvData) {</span></a>
-<a name="23"><span class="lineNum">      23 </span><span class="lineNoCov">          0 :           emit(TvRecomendationHasData(tvData));</span></a>
+<a name="22"><span class="lineNum">      22 </span><span class="lineCov">          1 :         (tvData) {</span></a>
+<a name="23"><span class="lineNum">      23 </span><span class="lineCov">          2 :           emit(TvRecomendationHasData(tvData));</span></a>
 <a name="24"><span class="lineNum">      24 </span>            :         },</a>
 <a name="25"><span class="lineNum">      25 </span>            :       );</a>
 <a name="26"><span class="lineNum">      26 </span>            :     });</a>

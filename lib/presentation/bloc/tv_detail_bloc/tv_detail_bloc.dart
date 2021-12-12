@@ -11,7 +11,7 @@ class TvDetailBloc extends Bloc<TvDetailEvent, TvDetailState> {
   TvDetailBloc(this.getTvDetail) : super(TvDetailEmpty()) {
     on<GetTvDetailEvent>((event, emit) async {
       final id = event.id;
-
+      emit(TvDetailLoading());
       final result = await getTvDetail.execute(id);
 
       result.fold((failure) {

@@ -10,7 +10,7 @@ class TvRecomendationBloc
     extends Bloc<TvRecomendationEvent, TvRecomendationState> {
   GetTvRecommendations getTvRecommendations;
   TvRecomendationBloc(this.getTvRecommendations)
-      : super(TvRecomendationInitial()) {
+      : super(TvRecomendationEmpty()) {
     on<GetTvRecomendationEvent>((event, emit) async {
       final id = event.id;
       emit(TvRecomendationLoading());

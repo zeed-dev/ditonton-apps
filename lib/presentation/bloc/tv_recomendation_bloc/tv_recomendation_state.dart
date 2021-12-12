@@ -7,8 +7,6 @@ abstract class TvRecomendationState extends Equatable {
   List<Object> get props => [];
 }
 
-class TvRecomendationInitial extends TvRecomendationState {}
-
 class TvRecomendationEmpty extends TvRecomendationState {
   @override
   List<Object> get props => [];

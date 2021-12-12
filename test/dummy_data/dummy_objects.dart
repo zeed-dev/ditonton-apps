@@ -135,7 +135,7 @@ final testTvDetailDua = TvDetail(
   voteCount: 7,
 );
 
-final tTvModel = Tv(
+final tTv = Tv(
   firstAirDate: "2021-11-24",
   name: "Hawkeye",
   originCountry: ["US"],
@@ -152,4 +152,4 @@ final tTvModel = Tv(
   voteCount: 616,
 );
 
-final tTvList = [tTvModel];
+final tTvList = [tTv];
